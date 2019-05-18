@@ -31,23 +31,6 @@ Response :
 }
 ```
 
-### Guest Login
-
-Link:[/api/v1/auth/guest_login/]()
-<br><br>
-Method: **POST**
-<br><br>
-**BODY**
-<br><br>
-random_id: Required
-<br><br>
-Response :
-
-```
-{
-"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODE1NmY4NjA3M2U3NTU1MDhlZDNjMiIsImlhdCI6MTU1MjY1NTIwMSwiZXhwIjoxNTU1MDc0NDAxfQ.gTX4y6LrEWHOSFWk60lHzrdTeV3K10iXpTLbAN2nNCc"
-}
-```
 
 ### Registration
 
