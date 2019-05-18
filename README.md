@@ -266,12 +266,10 @@ Response :
 {
     "banners": [
      {
-       "id": 1,
+       "product_id": 1,
        "image": "https//:imagelink.com",
        "title": "",
-       "description": "",
-       "parentId": 1,
-       "parentType": 1,
+       "description": ""
      }
   ]
 }
@@ -293,12 +291,10 @@ Response :
     "label" : "Discount Items",
     "data" : [
      {
-       "id": 1,
+       "product_id": 1,
        "image": "",
        "title": "",
-       "description": "",
-       "price": 212,
-       "categoryId": 1,
+       "description": ""
      }
   ]}
 }
@@ -320,12 +316,10 @@ Response :
     "label" : "Coming Soon",
     "data" : [
      {
-       "id": 1,
+       "product_id": 1,
        "image": "",
        "title": "",
-       "description": "",
-       "price": 212,
-       "categoryId": 1,
+       "description": ""
      }
   ]}
 }
@@ -347,12 +341,10 @@ Response :
     "label" : "Most View",
     "data" :  [
        {
-       "id": 1,
+       "product_id": 1,
        "image": "",
        "title": "",
-       "description": "",
-       "price": 212,
-       "categoryId": 1,
+       "description": ""
      }
   ]}
 }
@@ -374,12 +366,10 @@ Response :
     "label" : "Most View",
     "data" :  [
        {
-       "id": 1,
+       "product_id": 1,
        "image": "",
        "title": "",
-       "description": "",
-       "price": 212,
-       "categoryId": 1,
+       "description": ""
      }
   ]}
 }
@@ -401,12 +391,10 @@ Response :
     "label" : "New Items",
     "data" :  [
      {
-       "id": 1,
+       "product_id": 1,
        "image": "",
        "title": "",
-       "description": "",
-       "price": 212,
-       "categoryId": 1,
+       "description": ""
      }
   ]}
 }
