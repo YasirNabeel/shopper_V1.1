@@ -8,8 +8,7 @@ API documentation
 ### Notes:
 
 ```
-all requests required token in the header, There is two types of tokens for requests, Signed user token and
-guest token that able the user to view all products and to products to the cart and checkout the products you need to sign in or sign up.
+user able to view all products but add to products to the cart and checkout the products you need to sign in or sign up.
 ```
 
 ### Login
