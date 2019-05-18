@@ -9,6 +9,12 @@ API documentation
 
 ```
 user able to view all products but add to products to the cart and checkout the products you need to sign in or sign up.
+
+request status code:
+- 200 OK
+- 400 bad request // param issue
+- 401 unauthed // header: token issue
+- 404 not found // url issue
 ```
 
 ### Login
@@ -27,7 +33,7 @@ Response :
 
 ```
 {
-"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODE1NmY4NjA3M2U3NTU1MDhlZDNjMiIsImlhdCI6MTU1MjY1NTIwMSwiZXhwIjoxNTU1MDc0NDAxfQ.gTX4y6LrEWHOSFWk60lHzrdTeV3K10iXpTLbAN2nNCc"
+"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODE1NmY4NjA3M2U3NTU1MDhlZDNjMiIsImlhdCI6MTU1MjY1NTIwMSwiZXhwIjoxNTU1MDc0NDAxfQ.gTX4y6LrEWHOSFWk60lHzrdTeV3K10iXpTLbAN2nNCc" // cache it
 }
 ```
 
@@ -74,7 +80,7 @@ Response :
 
 ```
 {
-"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODE1NmY4NjA3M2U3NTU1MDhlZDNjMiIsImlhdCI6MTU1MjY1NTIwMSwiZXhwIjoxNTU1MDc0NDAxfQ.gTX4y6LrEWHOSFWk60lHzrdTeV3K10iXpTLbAN2nNCc"
+"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODE1NmY4NjA3M2U3NTU1MDhlZDNjMiIsImlhdCI6MTU1MjY1NTIwMSwiZXhwIjoxNTU1MDc0NDAxfQ.gTX4y6LrEWHOSFWk60lHzrdTeV3K10iXpTLbAN2nNCc" // cache it
 }
 ```
 
@@ -184,11 +190,15 @@ Response :
 
 <br><br>
 
-### Get categories (section_id)
+### Get categories
 
-Link:[api/v1/categories/:id]()
+Link:[api/v1/categories]()
 <br><br>
 Method: **GET**
+<br><br>
+**Param**
+<br><br>
+section_id: Required
 <br><br>
 Response :
 
@@ -204,11 +214,15 @@ Response :
 
 <br><br>
 
-### get products (category_id)
+### get products
 
-Link:[api/v1/products/:id]()
+Link:[api/v1/products]()
 <br><br>
 Method: **GET**
+<br><br>
+**Param**
+<br><br>
+category_id: Required
 <br><br>
 Response :
 
@@ -227,7 +241,13 @@ Response :
       "view_count":234,
       "is_coming_soon":true,
       "stock":123,
-      "arrival_time":234
+      "arrival_time":234,
+       "prices":[{
+            "price_id":"xxxxxxx"
+            "image": "slug",
+            "price": 30000,
+            "description": "New XL"
+      }]
     }]
 }
 ```
@@ -414,11 +434,15 @@ Response :
 
 <br><br>
 
-### Get cities (province_id)
+### Get cities
 
-Link:[api/v1/provinces/:id]()
+Link:[api/v1/provinces]()
 <br><br>
 Method: **GET**
+<br><br>
+**Param**
+<br><br>
+province_id: Required
 <br><br>
 Response :
 
@@ -442,7 +466,7 @@ Method: **POST**
 <br><br>
 **BODY**
 <br><br>
-priceID: Required
+price_id: Required
 <br><br>
 quantity: Required
 <br><br>
@@ -450,23 +474,27 @@ Response :
 
 ```
 {
-    "cart_id": "xxxxxxxxx",
+    "cart_id": "xxxxxxxxx" // cache it 
 }
 ```
 
 <br><br>
 
-### Get Cart products
+### Get Cart
 
 Link:[api/v1/cart/]()
 <br><br>
 Method: **GET**
 <br><br>
+**Param**
+<br><br>
+cart_id: Required
+<br><br>
 Response :
 
 ```
 {
-  "products" :[
+  "cart" :[
       {
         "prodcut_id": 1,
         "product_quantity" : 4,
@@ -488,8 +516,9 @@ Method: **POST**
 <br><br>
 **BODY**
 <br><br>
-productID: Required
+cart_id: Required
 <br><br>
+productID: Required
 <br><br>
 quantity: Required // quantity: 0
 <br><br>
@@ -505,7 +534,7 @@ Response :
 
 ### Get my Orders
 
-Link:[api/v1/Odrers/]()
+Link:[api/v1/orders/]()
 <br><br>
 Method: **GET**
 <br><br>
@@ -528,11 +557,15 @@ Response :
 
 <br><br>
 
-### Get my Orders products (order_id)
+### Get my Orders products
 
-Link:[api/v1/Odrers/:id]()
+Link:[api/v1/orders/products]()
 <br><br>
 Method: **GET**
+<br><br>
+**Param**
+<br><br>
+order_id: Required
 <br><br>
 Response :
 
@@ -540,9 +573,8 @@ Response :
 {
   "order_products":[
     {
-      "id": 1,
-      "product_quantity" : 10,
-      "status" : "",
+      "product_id": 1,
+      "product_quantity" : 10
     }
     ]
 }
@@ -550,53 +582,48 @@ Response :
 
 <br><br>
 
-### Get my Order product details (product_id)
 
-Link:[api/v1/Odrers/product_details/:id]()
-<br><br>
-Method: **GET**
-<br><br>
-Response :
+### checkout product
 
-```
-{
-  "product":
-       {
-      "id": 1,
-      "title":"",
-      "discount":50,
-      "des":"",
-      "is_summer":true,
-      "is_active":true,
-      "search_count":123,
-      "view_count":234,
-      "is_coming_soon":true,
-      "stock":123,
-      "arrival_time":234,
-            "prices":[{
-            "price_id":"xxxxxxx"
-            "image": "slug",
-            "price": 30000,
-            "description": "New XL"
-      }]
-    }
-
-}
-```
-
-<br><br>
-
-### checkout
-
-Link:[/api/v1/cart/checkout/]()
+Link:[/api/v1/checkout/product/]()
 <br><br>
 Method: **POST**
 <br><br>
 **BODY**
 <br><br>
-productIDs: Required
+product_id: Required
 <br><br>
-quantities: Required
+quantity: Required
+<br><br>
+same_user_info: Required // bool
+<br><br>
+place: optional
+<br><br>
+phone: optional
+<br><br>
+Response :
+
+```
+{
+    "msg": "Done",
+}
+```
+
+### checkout cart
+
+Link:[/api/v1/checkout/cart/]()
+<br><br>
+Method: **POST**
+<br><br>
+**BODY**
+<br><br>
+cart_id: Required
+<br><br>
+same_user_info: Required // bool
+<br><br>
+place: optional
+<br><br>
+phone: optional
 <br><br>
 Response :
 
@@ -610,7 +637,7 @@ Response :
 
 ### Search for product
 
-Link:[api/v1/Search]()
+Link:[api/v1/search]()
 <br><br>
 Method: **POST**
 <br><br>
@@ -621,31 +648,7 @@ name: Required
 Response :
 
 ```
-{
-  "products":[
-    {
-      "id": 1,
-      "title":"",
-      "image":"url",
-      "price":10000,
-      "discount":50,
-      "des":"",
-      "is_summer":true,
-      "is_active":true,
-      "search_count":123,
-      "view_count":234,
-      "is_coming_soon":true,
-      "stock":123,
-      "arrival_time":234,
-            "prices":[{
-            "price_id":"xxxxxxx"
-            "image": "slug",
-            "price": 30000,
-            "description": "New XL"
-      }]
-    }
-    ]
-}
+// get product response
 ```
 
 <br><br>
