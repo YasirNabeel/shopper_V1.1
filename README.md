@@ -518,7 +518,7 @@ Method: **POST**
 <br><br>
 cart_id: Required
 <br><br>
-productID: Required
+product_id: Required
 <br><br>
 quantity: Required // quantity: 0
 <br><br>
