@@ -232,8 +232,6 @@ Response :
       "id": 1,
       "title":"",
       "image":"url",
-      "price":10000,
-      "discount":50,
       "des":"",
       "is_summer":true,
       "is_active":true,
@@ -246,6 +244,7 @@ Response :
             "price_id":"xxxxxxx"
             "image": "slug",
             "price": 30000,
+            "discount":50,
             "description": "New XL"
       }]
     }]
