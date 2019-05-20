@@ -253,6 +253,45 @@ Response :
 
 <br><br>
 
+### get products
+
+Link:[api/v1/products]()
+<br><br>
+Method: **GET**
+<br><br>
+**Param**
+<br><br>
+product_id: Required
+<br><br>
+Response :
+
+```
+{
+  "product":{
+      "id": 1,
+      "title":"",
+      "image":"url",
+      "des":"",
+      "is_summer":true,
+      "is_active":true,
+      "search_count":123,
+      "view_count":234,
+      "is_coming_soon":true,
+      "stock":123,
+      "arrival_time":234,
+       "prices":[{
+            "price_id":"xxxxxxx"
+            "image": "slug",
+            "price": 30000,
+            "discount":50,
+            "description": "New XL"
+      }]
+    }
+}
+```
+
+<br><br>
+
 ### banners
 
 Link:[api/v1/home/banners/]()
