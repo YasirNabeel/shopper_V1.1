@@ -253,9 +253,9 @@ Response :
 
 <br><br>
 
-### get products
+### get product
 
-Link:[api/v1/products]()
+Link:[api/v1/product]()
 <br><br>
 Method: **GET**
 <br><br>
