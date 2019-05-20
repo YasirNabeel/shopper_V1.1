@@ -11,10 +11,18 @@ API documentation
 user able to view all products but add to products to the cart and checkout the products you need to sign in or sign up.
 
 request status code:
-- 200 OK
-- 400 bad request // param issue
+- 200 OK 
+- 400 bad request // param issue :-
+#Error msg
+{
+    msg:"some messege"
+}
 - 401 unauthed // header: token issue
-- 404 not found // url issue
+#Error msg
+{
+    msg:"some messege"
+}
+- 404 not found // url issue handle from the front-end
 ```
 
 ### Login
